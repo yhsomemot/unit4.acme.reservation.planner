@@ -43,9 +43,29 @@ const createCustomer = async(name)=> {
     return response.rows[0];
   };
 
+  const fetchCustomers = async()=> {
+    const SQL = `
+  SELECT *
+  FROM customers
+    `;
+    const response = await client.query(SQL);
+    return response.rows;
+  };
+
+  const fetchRestaurants = async()=> {
+    const SQL = `
+  SELECT *
+  FROM restaurants
+    `;
+    const response = await client.query(SQL);
+    return response.rows;
+  };
+
 module.exports = {
   client,
   createTables,
   createCustomer, 
-  createRestaurant
+  createRestaurant,
+  fetchCustomers,
+  fetchRestaurants
 };

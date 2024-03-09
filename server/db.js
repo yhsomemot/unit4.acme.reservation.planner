@@ -37,7 +37,7 @@ const createCustomer = async(name)=> {
 
   const createRestaurant = async(name)=> {
     const SQL = `
-      INSERT INTO restaurant(id, name) VALUES($1, $2) RETURNING *
+      INSERT INTO restaurants(id, name) VALUES($1, $2) RETURNING *
     `;
     const response = await client.query(SQL, [uuid.v4(), name]);
     return response.rows[0];

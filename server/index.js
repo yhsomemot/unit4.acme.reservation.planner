@@ -85,10 +85,9 @@ const init = async () => {
         createReservation({ date: '04/15/2024', party_count: 15, customer_name: moe.name, restaurant_name: sushi.name })
     ]);
     const reservations = await fetchReservations();
-    console.log(await fetchReservations());
     console.log(reservations);
     await destroyReservation(reservations[0].id);
-    console.log(await fetchReservations())
+    // console.log(await fetchReservations())
 
     const port = process.env.PORT || 3000;
     app.listen(port, () => console.log(`listening on port ${port}`));

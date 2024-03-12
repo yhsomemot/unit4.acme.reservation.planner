@@ -61,7 +61,6 @@ app.post('/api/customers/:id/reservations', async (req, res, next) => {
 });
 
 
-
 const init = async () => {
     await client.connect();
     console.log('connected to database');
@@ -82,7 +81,8 @@ const init = async () => {
     console.log(await fetchRestaurants());
     await Promise.all([
         createReservation({ date: '04/01/2024', party_count: 1, customer_name: moe.name, restaurant_name: sushi.name }),
-        createReservation({ date: '04/15/2024', party_count: 15, customer_name: moe.name, restaurant_name: sushi.name })
+        createReservation({ date: '04/15/2024', party_count: 15, customer_name: moe.name, restaurant_name: sushi.name }),
+        createReservation({ date: '12/06/2025', party_count: 3, customer_name: ethyl.name, restaurant_name: vegan.name })
     ]);
     const reservations = await fetchReservations();
     console.log(reservations);

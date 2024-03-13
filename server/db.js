@@ -43,7 +43,7 @@ const createCustomer = async(name)=> {
     return response.rows[0];
   };
 
-  const createReservation = async({ date, party_count, customer_name, restaurant_name})=> {
+  const createReservation = async({ date, party_count, customer_name, restaurant_name })=> {
     const SQL = `
       INSERT INTO reservations(id, date, party_count, customer_id, restaurant_id) VALUES($1, $2, $3, (SELECT id FROM customers WHERE name=$4), (SELECT id FROM restaurants WHERE name=$5)) RETURNING *
     `;

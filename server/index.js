@@ -53,7 +53,8 @@ app.delete('/api/customers/:customer_id/reservations/:id ', async (req, res, nex
 
 app.post('/api/customers/:id/reservations', async (req, res, next) => {
     try {
-        res.status(201).send(await createVacation(req.body.date, req.body.party_count, req.body.customer_name, req.body.restaurant_name));
+        res.status(201).send(await createReservation(req.body));
+        // date:req.body.date, party_count:req.body.party_count, customer_name:req.body.customer_name, req.body.restaurant_name
     }
     catch (ex) {
         next(ex);
